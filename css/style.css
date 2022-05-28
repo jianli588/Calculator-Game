@@ -5,5 +5,7 @@ min-height:100%;
 
 
 #outer_container{
-    height: 100vh;
+
+    margin-top:5vh;
+    margin-bottom:5vh;
 }
