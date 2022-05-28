@@ -1,0 +1,8 @@
+html, body{
+height:100%;
+}
+
+
+#outer_container{
+    min-height:100%;
+}
