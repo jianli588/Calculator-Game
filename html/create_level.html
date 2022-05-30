@@ -27,7 +27,7 @@
           <div class="border border-dark col-9 height_outer_container">
             <div class="row topbar_dimensions">
               <div class="col-3 offset-1 text-center align-middle topbar_element">
-                Steps Left:
+                Total Steps:
               </div>
               <div class="col-4 text-center align-middle topbar_element">
                 Level:
@@ -38,21 +38,21 @@
               <!--since offset only moves right-->
               <div class="col-1"></div>
               
-              <div id="steps_left_counter" class="col-3 offset-1 text-center align-middle topbar_element">
-                100
+              <div id="steps_total_counter" class="col-3 offset-1 text-center align-middle topbar_element">
+                0
               </div>
-              <div id="level_number" class="col-4 text-center align-middle topbar_element">
-                250
+              <div id="level_seed_number" class="col-4 text-center align-middle topbar_element">
+                
               </div>
-              <div id="target_number" class="col-3 text-center align-middle topbar_element">
-                716
+              <div class="col-3">
+                <input id="target_number" class="text-center align-middle topbar_element form-control" type="text" placeholder="">
               </div>
               <!--since offset only moves right-->
               <div class="col-1"></div>
             </div>
 
-            <div class="bg-dark text-white text-right align-top pr-5 calculator_screen">
-              <h3 class="calculator_screen_number">123</h3>
+            <div>
+              <input id="calculator_number" class="bg-dark text-white text-right align-top pr-5 calculator_screen calculator_screen_number form-control" type="text" placeholder="0">
             </div>
 
 
@@ -78,13 +78,13 @@
               </div>
 
               <div class="col-4 number_pad_grid">
-                <button id="hint_button" class="btn btn-outline-warning button_dimension button_font_long">hints</button>  
+                <button id="hint_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will revert the last addition you made">revert</button>  
               </div>
               <div class="col-4 number_pad_grid">
                 <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long">restart</button>  
+                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will delete everything you have done">reset</button>  
               </div>
 
             </div>
@@ -94,10 +94,10 @@
           <!--right side buttons-->
           <div class="col-3 height_outer_container">
             <div class="col-4 number_pad_grid">
-              <button class="btn btn-outline-success button_dimension button_font_long">Create</button>  
+              <button class="btn btn-outline-success button_dimension button_font_long disabled">Create</button>  
             </div>
             <div class="col-4 number_pad_grid">
-              <button class="btn btn-outline-success button_dimension button_font_long">Load</button>  
+              <button class="btn btn-outline-warning button_dimension button_font_long">back</button>  
             </div>
 
             
