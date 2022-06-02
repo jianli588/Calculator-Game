@@ -16,14 +16,14 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Calculator Game</title>
   </head>
   <body>
     <div id="margin_container">
       <!--Top Bar-->
       <div class="container width_outer_container">
-        <div class="row">
+        <div class="row ">
           <div class="border border-dark col-9 height_outer_container">
             <div class="row topbar_dimensions">
               <div class="col-3 offset-1 text-center align-middle topbar_element">
@@ -93,8 +93,8 @@
 
           <!--right side buttons-->
           <div class="col-3 height_outer_container">
-            <div class="col-4 number_pad_grid">
-              <button class="btn btn-outline-success button_dimension button_font_long">Create</button>  
+            <div class="col-4 number_pad_grid" style="padding-top:0vh;">
+              <button class="btn btn-outline-success button_dimension button_font_long" onclick="location.href='./create_level.html'">Create</button>  
             </div>
             <div class="col-4 number_pad_grid">
               <button class="btn btn-outline-success button_dimension button_font_long">Load</button>  
@@ -105,5 +105,7 @@
         </div>
       </div>
     </div>
+    <script src="../scripts/firebase.js"></script>
   </body>
+
 </html>
