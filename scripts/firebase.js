@@ -24,3 +24,22 @@ firebase.initializeApp(firebaseConfig);
 
 //reference your database
 var calculatorLevelDB = firebase.database().ref('CalculatorGame');
+
+document.getElementById(save_new_level).addEventListener("click", save_level);
+
+function save_level(){
+  var level_number = getElementVal(level_seed_number);
+  var target_number = getElementVal(target_number);
+  const button = [];
+  button[0] = getElementalVar(top_left_button);
+  button[1] = getElementalVar(top_button);
+  button[2] = getElementalVar(top_right_button);
+  button[3] = getElementalVar(left_button);
+  button[4] = getElementalVar(center_button);
+  button[5] = getElementalVar(right_button);
+  button[6] = getElementalVar(bottom_button);
+}
+
+const getElementVal = (id) => {
+  return document.getElementById(id);
+}

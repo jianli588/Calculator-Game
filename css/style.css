@@ -4,7 +4,7 @@ min-height:100%;
 }
 
 .width_outer_container{
-    width:80vh;
+    width:80vh !important;
 }
 
 .topbar_dimensions{
@@ -41,17 +41,42 @@ min-height:100%;
 }
 
 .number_pad_grid{
-    height:20vh; padding:1vh;
+    height:20vh; 
+    width:20vh;
+    padding:1vh;
+}
+
+.create_button_grid{
+    height:12vh; 
+    width:12vh;
+    padding:1vh;
 }
 
 .button_dimension{
     height:18vh; 
     width:18vh;
-    }
+}
+
+.create_button_dimension{
+    height:10vh; 
+    width:10vh;
+}
+
+.adding_button{
+    padding:1vh;
+}
+
+.button_width{
+    width:18vh;
+}
 
 .button_font_short{
     font-size:6vh;
 }
 .button_font_long{
     font-size:4vh;
+}
+
+.padding_zero{
+    padding: 0px !important;
 }
