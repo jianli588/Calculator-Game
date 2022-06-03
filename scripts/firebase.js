@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "../node_modules/firebase/app";
-import { getAnalytics } from "../node_modules/firebase/analytics";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,14 +13,13 @@ const firebaseConfig = {
   projectId: "calculatorgame-a4c2b",
   storageBucket: "calculatorgame-a4c2b.appspot.com",
   messagingSenderId: "787445332175",
-  appId: "1:787445332175:web:65e344ab6a2d4633de5fba",
-  measurementId: "G-Q0QCRLZCW6"
+  appId: "1:787445332175:web:c4daa9abe37f07bcde5fba",
+  measurementId: "G-LY8381L5J8"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-
 
 
 function createAndSave(){
