@@ -36,7 +36,7 @@
                 Level:
               </div>
               <div class="col-3 text-center align-middle topbar_element">
-                goal:
+                starting number:
               </div>
               <!--since offset only moves right-->
               <div class="col-1"></div>
@@ -48,7 +48,7 @@
                 
               </div>
               <div class="col-3">
-                <input id="target_number" class="text-center align-middle topbar_element form-control" type="text" placeholder="">
+                <input id="starting_number" class="text-center align-middle topbar_element form-control" type="text" placeholder="">
               </div>
               <!--since offset only moves right-->
               <div class="col-1"></div>
@@ -61,30 +61,30 @@
 
             <div class="row number_pad_margin">
               <div class="col-4 number_pad_grid">
-                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">+1</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">+2</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">+3</button>  
               </div>
 
               <div class="col-4 number_pad_grid">
-                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">-1</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">*8</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">/2</button>  
               </div>
 
               <div class="col-4 number_pad_grid">
                 <button id="hint_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will revert the last addition you made">revert</button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_short" onclick="calculate(this)">reverse</button>  
               </div>
               <div class="col-4 number_pad_grid">
                 <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will delete everything you have done">reset</button>  
@@ -213,6 +213,8 @@
     </div>
     <script type="module" src="../scripts/firebase.js"></script>
     <script type="module" src="../scripts/collapsible.js"></script>
+    <script src="../scripts/calculate.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

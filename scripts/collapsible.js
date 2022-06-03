@@ -1,5 +1,3 @@
-
-
 $("#addition_button_toggle").on("click", () => collapseAllOpenContent(0));
 $("#subtraction_button_toggle").on("click", () => collapseAllOpenContent(1));
 $("#multiplication_button_toggle").on("click", () => collapseAllOpenContent(2));
