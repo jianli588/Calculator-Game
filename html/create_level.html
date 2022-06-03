@@ -32,62 +32,62 @@
               <div class="col-3 offset-1 text-center align-middle topbar_element">
                 Total Steps:
               </div>
+
               <div class="col-4 text-center align-middle topbar_element">
                 Level:
               </div>
+
               <div class="col-3 text-center align-middle topbar_element">
-                goal:
+                starting #:
               </div>
-              <!--since offset only moves right-->
-              <div class="col-1"></div>
               
+
               <div id="steps_total_counter" class="col-3 offset-1 text-center align-middle topbar_element">
                 0
               </div>
-              <div id="level_seed_number" class="col-4 text-center align-middle topbar_element">
-                
+
+              <div id="level_seed_number" class="col-4 text-center align-middle topbar_element">  
               </div>
+
               <div class="col-3">
-                <input id="target_number" class="text-center align-middle topbar_element form-control" type="text" placeholder="">
+                <input id="starting_number" class="text-center align-middle topbar_element form-control" type="text" placeholder="" oninput="changeStarting(this.value)">
               </div>
-              <!--since offset only moves right-->
-              <div class="col-1"></div>
             </div>
 
             <div>
-              <input id="calculator_number" class="bg-dark text-white text-right align-top pr-5 calculator_screen calculator_screen_number form-control" type="text" placeholder="0">
+              <input id="calculator_number" class="bg-dark text-right align-top pr-5 calculator_screen calculator_screen_number form-control" type="text" placeholder="" oninput="changeStarting(this.value)">
             </div>
 
 
             <div class="row number_pad_margin">
               <div class="col-4 number_pad_grid">
-                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_long" ></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
-              </div>
-
-              <div class="col-4 number_pad_grid">
-                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
-              </div>
-              <div class="col-4 number_pad_grid">
-                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
-              </div>
-              <div class="col-4 number_pad_grid">
-                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
               </div>
 
               <div class="col-4 number_pad_grid">
-                <button id="hint_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will revert the last addition you made">revert</button>  
+                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_short">123</button>  
+                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will delete everything you have done">reset</button>  
+                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
+              </div>
+
+              <div class="col-4 number_pad_grid">
+                <button id="hint_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will revert the last addition you made" onclick="revert()">revert</button>  
+              </div>
+              <div class="col-4 number_pad_grid">
+                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_long"></button>  
+              </div>
+              <div class="col-4 number_pad_grid">
+                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long" data-toggle="tooltip" data-html="true" data-placement="top" title="this will delete everything you have done" onclick="reset()">reset</button>  
               </div>
 
             </div>
@@ -96,7 +96,7 @@
           <!--right side buttons-->
           <div class="col-3 height_outer_container">
             <div class="number_pad_grid" style="padding-top:0vh;">
-              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled">Create</button>  
+              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled" data-toggle="modal" data-target="#create_confirmation_modal" onclick="createAndSave">Create</button>  
             </div>
             <div class=" number_pad_grid">
               <button class="btn btn-outline-warning button_dimension button_font_long" onclick="location.href='./index.html'">back</button>  
@@ -119,8 +119,8 @@
                     <button id="subtraction_button_toggle" class="btn btn-outline-secondary  button_width button_font_long" data-toggle="collapse" data-target="#collapse-btn-2">-</button>  
                     <button id="multiplication_button_toggle" class="btn btn-outline-secondary  button_width button_font_long" data-toggle="collapse" data-target="#collapse-btn-3">*</button>  
                     <button id="division_button_toggle" class="btn btn-outline-secondary  button_width button_font_long" data-toggle="collapse" data-target="#collapse-btn-4">/</button>  
-                    <button id="add_reverse_button" class="btn btn-outline-secondary  button_width button_font_long">reverse</button>  
-                    <button id="delete_button" class="btn btn-outline-danger  button_width button_font_long">delete</button>
+                    <button id="add_reverse_button" class="btn btn-outline-secondary  button_width button_font_long" onclick="addButton(this.textContent)">reverse</button>  
+                    <button id="delete_button" class="btn btn-outline-danger  button_width button_font_long" type="button" data-toggle="button" onclick="setMode()">delete</button>
                   </div>
                 </div>
               </div>
@@ -130,76 +130,76 @@
 
           <div id="collapse-btn-1" class="collapse col-10 row" >
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">+1</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">+1</button>  
             </div>
             <div class=" create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">+2</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">+2</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">+3</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">+3</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">+4</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">+4</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">+5</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">+5</button>  
             </div>
           </div>
 
 
           <div id="collapse-btn-2" class="collapse col-10 row" >
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">-1</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">-1</button>  
             </div>
             <div class=" create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">-2</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">-2</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">-3</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">-3</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">-4</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">-4</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">-5</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">-5</button>  
             </div>
           </div>
 
           
           <div id="collapse-btn-3" class="collapse col-10 row" >
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">*1</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">*1</button>  
             </div>
             <div class=" create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">*2</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">*2</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">*3</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">*3</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">*4</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">*4</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">*5</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">*5</button>  
             </div>
           </div>
 
           
           <div id="collapse-btn-4" class="collapse col-10 row" >
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">/1</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">/1</button>  
             </div>
             <div class=" create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">/2</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">/2</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">/3</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">/3</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">/4</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">/4</button>  
             </div>
             <div class="create_button_grid">
-              <button id="top_left_button" class="btn btn-outline-secondary create_button_dimension button_font_long">/5</button>  
+              <button class="btn btn-outline-secondary create_button_dimension button_font_long" onclick="addButton(this.textContent)">/5</button>  
             </div>
           </div>
 
@@ -207,12 +207,39 @@
       
         </div>
 
+        <div class="modal" id="create_confirmation_modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Congratulations</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div  class="modal-body">
+                <div >
+                  "Your new level has been successfully created, your level seed is:"
+                </div>
+                <div>
+                  <span  id="created_modal_page">
 
+                  </span>
+                  <button class="btn btn-outline-dark" onclick="copyLevelSeed()" >Copy Text</button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-outline-dark" data-dismiss="modal" onclick="location.href='./index.html'">Bring me to the play page!!!</button>
+                <button class="btn btn-outline-dark" data-dismiss="modal" >Continue Creating!!!</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
     </div>
-    <script type="module" src="../scripts/firebase.js"></script>
-    <script type="module" src="../scripts/collapsible.js"></script>
+    <script type = "module" src="../scripts/firebase.js"></script>
+    <script type = "module" src="../scripts/collapsible.js"></script>
+    <script src="../scripts/calculate.js"></script>
+    <script src="../scripts/create_level_specific.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

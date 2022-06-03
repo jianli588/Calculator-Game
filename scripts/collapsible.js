@@ -1,5 +1,3 @@
-
-
 $("#addition_button_toggle").on("click", () => collapseAllOpenContent(0));
 $("#subtraction_button_toggle").on("click", () => collapseAllOpenContent(1));
 $("#multiplication_button_toggle").on("click", () => collapseAllOpenContent(2));
@@ -22,9 +20,7 @@ collapsible[3]= document.getElementById("collapse-btn-4");
         collapsible[i].classList.remove('show');
       }
 
-      console.log(collapsible[i]);
-
     }
-    
+
 
   }
