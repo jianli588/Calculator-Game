@@ -20,8 +20,6 @@ collapsible[3]= document.getElementById("collapse-btn-4");
         collapsible[i].classList.remove('show');
       }
 
-      console.log(collapsible[i]);
-
     }
     
 

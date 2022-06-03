@@ -1,6 +1,5 @@
-function calculate(button){
+function calculate(command){
 
-   var command = button.textContent;
    var number = command.replace( /^\D+/g, ''); //code from https://stackoverflow.com/a/10003709/18174704
     if (command=== "reverse"){
         reverse();
@@ -17,6 +16,12 @@ function calculate(button){
     else if(command.includes("/")){
         divide(number);
     }
+    else{
+        console.log("error");
+        return;
+    }
+
+    after_calculation(command);
 }
 
 function add(num){
