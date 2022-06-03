@@ -21,6 +21,6 @@ collapsible[3]= document.getElementById("collapse-btn-4");
       }
 
     }
-    
+
 
   }

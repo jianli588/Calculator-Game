@@ -96,7 +96,7 @@
           <!--right side buttons-->
           <div class="col-3 height_outer_container">
             <div class="number_pad_grid" style="padding-top:0vh;">
-              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled">Create</button>  
+              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled" data-toggle="modal" data-target="#create_confirmation_modal" onclick="createAndSave">Create</button>  
             </div>
             <div class=" number_pad_grid">
               <button class="btn btn-outline-warning button_dimension button_font_long" onclick="location.href='./index.html'">back</button>  
@@ -120,7 +120,7 @@
                     <button id="multiplication_button_toggle" class="btn btn-outline-secondary  button_width button_font_long" data-toggle="collapse" data-target="#collapse-btn-3">*</button>  
                     <button id="division_button_toggle" class="btn btn-outline-secondary  button_width button_font_long" data-toggle="collapse" data-target="#collapse-btn-4">/</button>  
                     <button id="add_reverse_button" class="btn btn-outline-secondary  button_width button_font_long" onclick="addButton(this.textContent)">reverse</button>  
-                    <button id="delete_button" class="btn btn-outline-danger  button_width button_font_long" onclick="setMode()">delete</button>
+                    <button id="delete_button" class="btn btn-outline-danger  button_width button_font_long" type="button" data-toggle="button" onclick="setMode()">delete</button>
                   </div>
                 </div>
               </div>
@@ -207,12 +207,36 @@
       
         </div>
 
+        <div class="modal" id="create_confirmation_modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Congratulations</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div  class="modal-body">
+                <div >
+                  "Your new level has been successfully created, your level seed is:"
+                </div>
+                <div>
+                  <span  id="created_modal_page">
 
+                  </span>
+                  <button class="btn btn-outline-dark" onclick="copyLevelSeed()" >Copy Text</button>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-outline-dark" data-dismiss="modal" onclick="location.href='./index.html'">Bring me to the play page!!!</button>
+                <button class="btn btn-outline-dark" data-dismiss="modal" >Continue Creating!!!</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
     </div>
-    <script type="module" src="../scripts/firebase.js"></script>
-    <script type="module" src="../scripts/collapsible.js"></script>
+    <script type = "module" src="../scripts/firebase.js"></script>
+    <script type = "module" src="../scripts/collapsible.js"></script>
     <script src="../scripts/calculate.js"></script>
     <script src="../scripts/create_level_specific.js"></script>
 

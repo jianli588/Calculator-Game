@@ -80,3 +80,8 @@ min-height:100%;
 .padding_zero{
     padding: 0px !important;
 }
+
+
+.disabled { 
+    pointer-events: none;
+}

@@ -130,5 +130,20 @@ function setMode(){
 }
 
 function deleteButton(button){
+    const temp_text = button.textContent;
+
+    for (let i = move.length-1; i>=0; i--){
+        console.log(move);
+        if (move[i] === temp_text){
+            move.splice(i, 1);
+            
+        }
+        
+    }
+
+    console.log(move);
+    recalculate();
+
     button.textContent = '';
+    
 }
