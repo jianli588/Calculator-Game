@@ -1,7 +1,5 @@
 function calculate(command){
 
-
-    console.log(command);
     var number = command.replace( /^\D+/g, ''); //code from https://stackoverflow.com/a/10003709/18174704
     if (command=== "reverse"){
         reverse();
@@ -19,7 +17,6 @@ function calculate(command){
         divide(number);
     }
     else{
-        console.log("error");
         return;
     }
 

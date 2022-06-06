@@ -44,7 +44,6 @@ function createAndSave(){
   numberOfValue: numberOfValues
   })
   .then(() => {
-  console.log(numberOfValues);
   var button_text_one = num_pad_button[0].textContent;
   var button_text_two = num_pad_button[1].textContent;
   var button_text_three = num_pad_button[2].textContent;
@@ -102,7 +101,6 @@ function loadRandom(){
   return;
 
 }).then(() =>{
-  console.log("this is stupid");
   var levelKeys = Object.keys(levelData);
 
   var levelNum = Math.floor(Math.random()*levelKeys.length);
@@ -116,7 +114,6 @@ function loadLevel(key){
   get(child(ref(database), "/levels/" + key +"/")).then((snapshot) => {
     if (snapshot.exists()) {
       levelData = snapshot.val();
-      console.log("data");
   } else {
     alert("the level seed: " + key + " is incorrect!!:");
     return;

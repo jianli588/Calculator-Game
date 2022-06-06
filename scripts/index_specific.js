@@ -111,7 +111,6 @@ function add(num){
 
     const starting_number = calculatorScreen.textContent;
     calculatorScreen.textContent = parseInt(starting_number) + parseInt(num);
-    console.log(calculatorScreen.value);
 }
 
 function subtract(num){

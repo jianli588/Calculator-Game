@@ -52,7 +52,6 @@ function recalculate(){
         for (let i = 0; i<move.length; i++){
             calculate(move[i]);
             move.pop();
-            console.log(move);
         }
 
     }
@@ -111,8 +110,6 @@ function addButton(button_command){
 }
 
 function setMode(){
-    console.log("12345678");
-    console.log(modeDelete);
     if (modeDelete == false){
         for(let i = 0; i<num_pad_button.length; i++){
             num_pad_button[i].setAttribute( "onClick", "javascript: deleteButton(this);" );
@@ -133,15 +130,12 @@ function deleteButton(button){
     const temp_text = button.textContent;
 
     for (let i = move.length-1; i>=0; i--){
-        console.log(move);
         if (move[i] === temp_text){
             move.splice(i, 1);
             
         }
         
     }
-
-    console.log(move);
     recalculate();
 
     button.textContent = '';
@@ -168,7 +162,6 @@ function add(num){
 
     const starting_number = document.getElementById("calculator_number").value;
     document.getElementById("calculator_number").value = parseInt(starting_number) + parseInt(num);
-    console.log(document.getElementById("calculator_number").value);
 }
 
 function subtract(num){
