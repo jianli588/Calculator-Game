@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <title>Calculator Game</title>
   </head>
-  <body>
+  <body onload="loadRandom()">
     <div id="margin_container">
       <!--Top Bar-->
       <div class="container width_outer_container">
@@ -29,62 +29,62 @@
               <div class="col-3 offset-1 text-center align-middle topbar_element">
                 Steps Left:
               </div>
+
               <div class="col-4 text-center align-middle topbar_element">
-                Level:
+                Level Key:
               </div>
+
               <div class="col-3 text-center align-middle topbar_element">
                 goal:
               </div>
-              <!--since offset only moves right-->
-              <div class="col-1"></div>
+
               
               <div id="steps_left_counter" class="col-3 offset-1 text-center align-middle topbar_element">
-                100
               </div>
-              <div id="level_number" class="col-4 text-center align-middle topbar_element">
-                250
+              
+              <div id="level_seed_number" class="col-4 text-center align-middle topbar_element tiny_font">
+
               </div>
-              <div id="target_number" class="col-3 text-center align-middle topbar_element">
-                716
+
+              <div id="target_number" class="col-3 text-center align-middle topbar_element">                
               </div>
-              <!--since offset only moves right-->
-              <div class="col-1"></div>
+
             </div>
 
             <div class="bg-dark text-white text-right align-top pr-5 calculator_screen">
-              <h3 class="calculator_screen_number">123</h3>
+              <h3 id="calculator_screen" class="calculator_screen_number">123</h3>
             </div>
 
 
             <div class="row number_pad_margin">
               <div class="col-4 number_pad_grid">
-                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
+                <button id="top_left_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
+                <button id="top_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
-              </div>
-
-              <div class="col-4 number_pad_grid">
-                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
-              </div>
-              <div class="col-4 number_pad_grid">
-                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
-              </div>
-              <div class="col-4 number_pad_grid">
-                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
+                <button id="top_right_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
               </div>
 
               <div class="col-4 number_pad_grid">
-                <button id="hint_button" class="btn btn-outline-warning button_dimension button_font_long">hints</button>  
+                <button id="left_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_long">123</button>  
+                <button id="center_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
               </div>
               <div class="col-4 number_pad_grid">
-                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long">restart</button>  
+                <button id="right_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
+              </div>
+
+              <div class="col-4 number_pad_grid">
+                <button id="hint_button" class="btn btn-outline-warning button_dimension button_font_long" onclick="hint()">hints</button>  
+              </div>
+              <div class="col-4 number_pad_grid">
+                <button id="bottom_button" class="btn btn-outline-secondary button_dimension button_font_long" onclick="calculate(this.textContent)"></button>  
+              </div>
+              <div class="col-4 number_pad_grid">
+                <button id="restart_button" class="btn btn-outline-danger button_dimension button_font_long" onclick="reset()">restart</button>  
               </div>
 
             </div>
@@ -97,15 +97,66 @@
               <button class="btn btn-outline-success button_dimension button_font_long" onclick="location.href='./create_level.html'">Create</button>  
             </div>
             <div class="col-4 number_pad_grid">
-              <button class="btn btn-outline-success button_dimension button_font_long">Load</button>  
+              <button class="btn btn-outline-success button_dimension button_font_long" data-toggle="modal" data-target="#load_modal">Load</button>  
             </div>
 
-            
+
           </div>
         </div>
       </div>
     </div>
-    <script src="../scripts/firebase.js"></script>
+
+    <div class="modal" id="message_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="index_modal_title" class="modal-title">Modal Title</h5>
+          </div>
+          <div id="index_modal_text" class="modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus unde veniam harum magnam molestias dignissimos omnis
+            architecto, quod, obcaecati dolorum debitis dolore porro qui, iusto quo accusantium voluptates pariatur illo.
+          </div>
+          <div class="modal-footer">
+            <button id="index_modal_button" class="btn btn-outline-dark" data-dismiss="modal" onclick = "loadNextLevel();">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="load_modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal login</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <input id="level_key_input" type="text" class="form-control" placeholder="level key">
+          </div>
+          <div class="modal-footer">
+            
+            <button class="btn btn-outline-primary" data-dismiss="modal" onclick="loadNewLevel()">load</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+
+
+
+
+    <script type="module" src="../scripts/firebase.js"></script>
+    <script src="../scripts/index_specific.js"></script>
+    <script src="../scripts/calculate.js"></script>
   </body>
 
 </html>

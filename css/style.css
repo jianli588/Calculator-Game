@@ -81,6 +81,10 @@ min-height:100%;
     padding: 0px !important;
 }
 
+.tiny_font{
+    padding-top: 0.5vh;
+    font-size: 1vh;
+}
 
 .disabled { 
     pointer-events: none;

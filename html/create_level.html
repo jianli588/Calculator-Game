@@ -34,7 +34,7 @@
               </div>
 
               <div class="col-4 text-center align-middle topbar_element">
-                Level:
+                Level Key:
               </div>
 
               <div class="col-3 text-center align-middle topbar_element">
@@ -46,7 +46,7 @@
                 0
               </div>
 
-              <div id="level_seed_number" class="col-4 text-center align-middle topbar_element">  
+              <div  class="col-4 text-center align-middle topbar_element">  
               </div>
 
               <div class="col-3">
@@ -96,10 +96,10 @@
           <!--right side buttons-->
           <div class="col-3 height_outer_container">
             <div class="number_pad_grid" style="padding-top:0vh;">
-              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled" data-toggle="modal" data-target="#create_confirmation_modal" onclick="createAndSave">Create</button>  
+              <button id="save_new_level" class="btn btn-outline-success button_dimension button_font_long disabled" data-toggle="modal" data-target="#create_confirmation_modal" onclick="createAndSave()">Create</button>  
             </div>
             <div class=" number_pad_grid">
-              <button class="btn btn-outline-warning button_dimension button_font_long" onclick="location.href='./index.html'">back</button>  
+              <button class="btn btn-outline-warning button_dimension button_font_long" onclick= "location.href='./index.html'">back</button>  
             </div>
             
 
@@ -216,14 +216,15 @@
               </div>
               <div  class="modal-body">
                 <div >
-                  "Your new level has been successfully created, your level seed is:"
+                  "Your new level has been successfully created, you can now share your level using the level seed.
+                   your level seed is:"
                 </div>
                 <div>
-                  <span  id="created_modal_page">
-
-                  </span>
-                  <button class="btn btn-outline-dark" onclick="copyLevelSeed()" >Copy Text</button>
-                </div>
+                  <div class="input-group">
+                    <input class="form-control" type="text" id="created_modal_page_level_seed">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-dark" onclick="copyLevelSeed()" >Copy Text</button>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button class="btn btn-outline-dark" data-dismiss="modal" onclick="location.href='./index.html'">Bring me to the play page!!!</button>
@@ -235,10 +236,6 @@
 
 
     </div>
-    <script type = "module" src="../scripts/firebase.js"></script>
-    <script type = "module" src="../scripts/collapsible.js"></script>
-    <script src="../scripts/calculate.js"></script>
-    <script src="../scripts/create_level_specific.js"></script>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -247,6 +244,13 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
+
+    <script type = "module" src="../scripts/firebase.js"></script>
+    <script type = "module" src="../scripts/collapsible.js"></script>
+    <script src="../scripts/calculate.js"></script>
+    <script src="../scripts/create_level_specific.js"></script>
+
+
   </body>
 
 </html>
