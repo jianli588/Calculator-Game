@@ -147,3 +147,48 @@ function deleteButton(button){
     button.textContent = '';
     
 }
+
+
+function copyLevelSeed() {
+    var copyText = document.getElementById("created_modal_page_level_seed");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+    
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+}
+
+
+function add(num){
+
+    const starting_number = document.getElementById("calculator_number").value;
+    document.getElementById("calculator_number").value = parseInt(starting_number) + parseInt(num);
+    console.log(document.getElementById("calculator_number").value);
+}
+
+function subtract(num){
+    const starting_number = document.getElementById("calculator_number").value;
+    document.getElementById("calculator_number").value = parseInt(starting_number) - parseInt(num);
+
+}
+
+function multiply(num){
+    const starting_number = document.getElementById("calculator_number").value;
+    document.getElementById("calculator_number").value = parseInt(starting_number) * parseInt(num);
+
+}
+
+function divide(num){
+    const starting_number = document.getElementById("calculator_number").value;
+    document.getElementById("calculator_number").value = (parseInt(starting_number) - (parseInt(starting_number) % parseInt(num))) / parseInt(num);
+}
+
+function reverse(){
+    const starting_number = document.getElementById("calculator_number").value;
+    document.getElementById("calculator_number").value = starting_number.split("").reverse().join("");;
+}
