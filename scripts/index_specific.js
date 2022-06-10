@@ -53,17 +53,21 @@ function after_calculation(command){
 
     if (calculatorScreen.textContent === targetNum){
         //You won Modal pop up
+        indexModalButton.setAttribute("onclick", "javascript: loadNextLevel()");
         indexModalTitle.textContent = "Congratulations";
         indexModalText.textContent = "You Won!!! You will load a new level by clicking the close button"
         messageModal.setAttribute("style", "display: block");
 
 
+
     }
 
     else if(StepLeftCounter.textContent === "0"){
+        indexModalButton.setAttribute("onclick", "javascript: retryLevel()");
         indexModalTitle.textContent = "you lose!";
         indexModalText.textContent = "You can retry the level by clicking the close button"
         messageModal.setAttribute("style", "display: block");
+
     }
 
     else if(!computerMove){
@@ -77,11 +81,13 @@ function after_calculation(command){
 
 function loadNextLevel(){
     messageModal.setAttribute("style", "display: none");
+    currentMove = 0;
     loadRandom();
 }
 
 function retryLevel(){
     messageModal.setAttribute("style", "display: none");
+    currentMove = 0;
     reset();
 }
 
@@ -92,7 +98,10 @@ function hint(){
 }
 
 function loadNewLevel(){
+    hintButton.classList.remove("disabled");
+    currentMove = 0;
     loadLevel(document.getElementById("level_key_input").value);
+
 }
 
 function reset(){
