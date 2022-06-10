@@ -115,9 +115,17 @@ function setMode(){
             num_pad_button[i].setAttribute( "onClick", "javascript: deleteButton(this);" );
         }
         
+        document.getElementById("delete_button").textContent = "deleting";
         modeDelete = true;
     }
     
+    else if (modeDelete == true){
+        for(let i = 0; i<num_pad_button.length; i++){
+            num_pad_button[i].setAttribute( "onClick", "javascript: calculate(this.textContent);" );
+        }
+        document.getElementById("delete_button").textContent = "delete";
+        modeDelete = false;
+    }
     else{
         for(let i = 0; i<num_pad_button.length; i++){
             num_pad_button[i].setAttribute( "onClick", "javascript: calculate(this.textContent);" );
@@ -144,6 +152,7 @@ function deleteButton(button){
 
 
 function copyLevelSeed() {
+    //code from w3school
     var copyText = document.getElementById("created_modal_page_level_seed");
 
     /* Select the text field */
@@ -153,8 +162,6 @@ function copyLevelSeed() {
     /* Copy the text inside the text field */
     navigator.clipboard.writeText(copyText.value);
     
-    /* Alert the copied text */
-    alert("Copied the text: " + copyText.value);
 }
 
 
